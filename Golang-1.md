@@ -1,4 +1,4 @@
-# Cours Ultra Complet de Go (Golang) - Partie 1 : Fondamentaux
+# Cours Ultra Complet de Go (Golang) - Partie 1 : Fondamentaux!
 
 ## Table des matières - Partie 1
 1. Introduction et historique

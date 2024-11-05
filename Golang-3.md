@@ -1,4 +1,4 @@
-# Cours Ultra Complet de Go (Golang) - Partie 3 : Applications Pratiques
+# Cours Ultra Complet de Go (Golang) - Partie 3 : Applications Pratiques!
 
 ## Table des matières - Partie 3
 1. Applications Web avancées
@@ -553,5 +553,28 @@ func CreateArticleWithTags(db *gorm.DB, article *Article, tagNames []string) err
             if err := tx.FirstOrCreate(&tag, Tag{Name: name}).Error; err != nil {
                 return err
             }
-            
-            // Associer
+            // Suite de la gestion des transactions
+            if err := tx.Model(article).Association("Tags").Append(&tag); err != nil {
+                return err
+            }
+        }
+        
+        return nil
+    })
+}
+
+// Requêtes complexes avec GORM
+func GetUserArticlesWithStats(db *gorm.DB, userID uint) ([]Article, error) {
+    var articles []Article
+    
+    result := db.Model(&Article{}).
+        Preload("Tags").
+        Joins("LEFT JOIN comments ON comments.article_id = articles.id").
+        Where("articles.user_id = ?", userID).
+        Group("articles.id").
+        Select("articles.*, COUNT(comments.id) as comment_count").
+        Find(&articles)
+        
+    return articles, result.Error
+}
+```

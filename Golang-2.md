@@ -1,4 +1,4 @@
-# Cours Ultra Complet de Go (Golang) - Partie 2 : Concepts Avancés
+# Cours Ultra Complet de Go (Golang) - Partie 2 : Concepts Avancés!
 
 ## Table des matières - Partie 2
 1. Fonctions et méthodes avancées
