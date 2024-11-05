@@ -381,6 +381,3 @@ func (uc *UserCache) GetUser(id string) (*User, error) {
     
     return &user, nil
 }
-```
-
-Voilà la suite et fin de la partie 3 du cours. Cette dernière section couvre les aspects pratiques de l'intégration avec différents systèmes et services externes. Voulez-vous que je développe davantage un aspect particulier ?
